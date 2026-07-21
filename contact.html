@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PVPD5RGK');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practice tracking a contact form submission with Google Tag Manager and GA4.">
+  <title>Contact Form Exercise | GTM Practice Lab</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #637083;
+      --line: #dce2ea;
+      --surface: #ffffff;
+      --accent: #3c5cff;
+      --accent-dark: #2944d7;
+      --success-bg: #ecfdf3;
+      --success-ink: #166534;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f5f7fb;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .header-inner,
+    main {
+      width: min(100% - 32px, 760px);
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    nav { display: flex; gap: 20px; }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.925rem;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] { color: var(--accent); }
+
+    main { padding-block: 64px; }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 3.5rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .intro {
+      max-width: 600px;
+      margin: 18px 0 32px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .card {
+      padding: clamp(24px, 5vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: 0 16px 44px rgba(29, 44, 75, 0.08);
+    }
+
+    .field { margin-bottom: 22px; }
+
+    label,
+    legend {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #c9d1dd;
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      padding: 12px 14px;
+    }
+
+    textarea { min-height: 130px; resize: vertical; }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      outline: 3px solid rgba(60, 92, 255, 0.15);
+    }
+
+    .helper {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 750;
+      padding: 13px 20px;
+    }
+
+    button:hover { background: var(--accent-dark); }
+    .success {
+      margin: 18px 0 0;
+      border-radius: 10px;
+      background: var(--success-bg);
+      color: var(--success-ink);
+      padding: 13px 16px;
+    }
+
+    .event-note {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    code {
+      border-radius: 4px;
+      background: #e9edf5;
+      color: #263a87;
+      padding: 2px 5px;
+    }
+
+    [hidden] { display: none; }
+
+    @media (max-width: 560px) {
+      .header-inner { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 16px; }
+      nav { width: 100%; justify-content: space-between; }
+      main { padding-block: 44px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVPD5RGK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html">GTM Practice Lab</a>
+      <nav aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <p class="eyebrow">Tracking exercise</p>
+    <h1>Send a test message</h1>
+    <p class="intro">Complete the form to generate a submission event you can inspect in Google Tag Manager Preview and GA4 DebugView.</p>
+
+    <section class="card" aria-labelledby="form-heading">
+      <h2 id="form-heading">Contact form</h2>
+
+      <form id="contact-form" name="contact_form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-helper" required>
+          <small class="helper" id="email-helper">Used only for this demo; personal data is not added to the data layer.</small>
+        </div>
+
+        <div class="field">
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic" required>
+            <option value="">Choose a topic</option>
+            <option value="analytics">Analytics setup</option>
+            <option value="tag-management">Tag management</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button id="submit-button" type="submit">Send test message</button>
+        <p class="success" id="success-message" role="status" tabindex="-1" hidden>
+          Message submitted. The tracking event is ready to inspect.
+        </p>
+      </form>
+    </section>
+
+    <p class="event-note">Successful submissions push <code>event: "form_submit"</code> with the form ID, name, and topic.</p>
+  </main>
+
+  <script>
+    const contactForm = document.getElementById("contact-form");
+    const submitButton = document.getElementById("submit-button");
+    const successMessage = document.getElementById("success-message");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const topic = contactForm.elements.topic.value;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "form_submit",
+        form_id: contactForm.id,
+        form_name: contactForm.getAttribute("name"),
+        form_topic: topic
+      });
+
+      submitButton.textContent = "Send another test message";
+      successMessage.hidden = false;
+      successMessage.focus();
+    });
+  </script>
+</body>
+</html>
