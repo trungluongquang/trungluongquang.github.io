@@ -1,86 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PVPD5RGK');</script>
-    <!-- End Google Tag Manager -->
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>GTM Practice Lab</title>
-</head>
-
-<body>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVPD5RGK"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-  <header>
-    <h1>GTM and GA4 Practice Lab</h1>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <h2>Tracking exercises</h2>
-
-    <button id="newsletter-button">
-      Subscribe to newsletter
-    </button>
-
-    <br><br>
-
-    <a href="https://www.google.com" target="_blank">
-      Visit Google
-    </a>
-    <br><br>
-    <a id="github-link" href="https://github.com" target="_self">
-        Visit GitHub
-    </a>
-
-    <br><br>
-
-    <a href="sample-guide.pdf" download>
-      Download PDF
-    </a>
-
-    <br><br>
-
-    <button id="add-to-cart-button">
-      Add product to cart
-    </button>
-
-    <br><br>
-
-    <a href="contact.html">
-      Practice form submission tracking
-    </a>
-  </main>
-
-  <script>
-    document
-      .getElementById("newsletter-button")
-      .addEventListener("click", function () {
-        alert("Newsletter signup completed");
-      });
-
-    document
-      .getElementById("add-to-cart-button")
-      .addEventListener("click", function () {
-        alert("Product added to cart");
-      });
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CouponLab is a fictional coupon experience for frontend and analytics practice."
+    />
+    <meta property="og:title" content="FreshBox coupons & offers | CouponLab" />
+    <meta
+      property="og:description"
+      content="Explore fictional FreshBox offers in this frontend and analytics practice project."
+    />
+    <title>FreshBox coupons & offers | CouponLab</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
