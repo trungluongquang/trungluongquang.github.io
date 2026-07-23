@@ -33,6 +33,7 @@ npm run build
 - Local `/retailer` experience for safe end-to-end affiliate-flow practice
 - URL-driven offer dialog with clipboard support
 - Consent-aware `window.dataLayer` events and a development debugger
+- An on-page practice lab that pushes a visible example event
 - Keyboard controls, semantic landmarks, visible focus, responsive layouts, and reduced-motion support
 - Vitest and Testing Library interaction coverage
 
@@ -130,6 +131,7 @@ In development, the bottom-right “Analytics debugger” panel shows the eight 
 | `internal_search`     | Non-empty store search submitted      | `search_term`, `destination`                                                                                                              | Site-search event; avoid PII |
 | `scroll_depth`        | First crossing of 25/50/75/100%       | `percent_scrolled`, `page_type`                                                                                                           | Custom event                 |
 | `consent_update`      | Allow or decline selected             | `analytics_storage`                                                                                                                       | Consent diagnostic           |
+| `practice_cta_click`  | Practice-lab button selected           | `cta_name`, `page_type`, `merchant`                                                                                                       | Custom event exercise        |
 
 The fictional retailer button also emits `retailer_cta`; it is outside the required coupon-page dictionary and exists for local funnel experimentation.
 

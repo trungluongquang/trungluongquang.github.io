@@ -41,6 +41,23 @@ describe("coupon interactions", () => {
     );
   });
 
+  it("pushes the visible practice event after consent", async () => {
+    setConsent("granted");
+    render(<App />);
+    await userEvent.click(
+      screen.getByRole("button", { name: "Send practice event" }),
+    );
+    expect(ensureDataLayer()).toContainEqual({
+      event: "practice_cta_click",
+      cta_name: "open_saving_guide",
+      page_type: "merchant_coupon_page",
+      merchant: "freshbox",
+    });
+    expect(
+      screen.getByRole("button", { name: "Event sent ✓" }),
+    ).toBeEnabled();
+  });
+
   it("opens one FAQ item at a time", async () => {
     setConsent("granted");
     render(<App />);

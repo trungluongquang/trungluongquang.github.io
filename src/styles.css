@@ -794,6 +794,51 @@ footer {
   background: transparent;
   border: 1px solid #8994a4;
 }
+.data-layer-practice {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: 28px;
+  align-items: center;
+  margin: 28px 0 44px;
+  padding: 28px;
+  border: 1px solid #c9d5e5;
+  border-radius: 18px;
+  background: #f5f8fc;
+}
+.data-layer-practice h2 {
+  margin: 4px 0 8px;
+}
+.data-layer-practice p {
+  margin: 0 0 16px;
+  color: #566276;
+}
+.data-layer-practice button {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 16px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 800;
+}
+.data-layer-practice button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.data-layer-practice small {
+  display: block;
+  margin-top: 9px;
+  color: #697588;
+}
+.data-layer-practice pre {
+  overflow-x: auto;
+  margin: 0;
+  padding: 18px;
+  border-radius: 12px;
+  background: #101c2c;
+  color: #c9f7d6;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
 .analytics-debugger {
   position: fixed;
   right: 12px;
@@ -823,6 +868,11 @@ footer {
 }
 .analytics-debugger code {
   white-space: pre-wrap;
+}
+@media (max-width: 720px) {
+  .data-layer-practice {
+    grid-template-columns: 1fr;
+  }
 }
 .offer-dialog {
   width: min(540px, calc(100% - 30px));

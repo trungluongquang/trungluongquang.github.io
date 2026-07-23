@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnalyticsDebugger } from "./components/AnalyticsDebugger";
 import { CookieConsent } from "./components/CookieConsent";
+import { DataLayerPractice } from "./components/DataLayerPractice";
 import { Header } from "./components/Header";
 import { OfferCard } from "./components/OfferCard";
 import { OfferModal } from "./components/OfferModal";
@@ -190,6 +191,8 @@ function CouponPage() {
               or tracking endpoint exists.
             </p>
           </aside>
+
+          <DataLayerPractice />
 
           <div className="content-grid">
             <section
